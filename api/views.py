@@ -4,9 +4,27 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-from .serializers import BestiaMisionPergaminoLlaveSerializer, BestiaMiticaSerializer, ChuninSerializer, EquipoEnMisionPergaminoSerializer, EquipoEnMisionSerializer, EquipoSerializer, GeninSerializer, JouninSerializer, MisionSerializer, NinjaSerializer, NinjaTecnicaSerializer, PergaminoSerializer, PersonaSerializer, TecnicaAtaqueSerializer, TecnicaCurativaSerializer, TecnicaSerializer
+from .serializers import BestiaMisionPergaminoSerializer, BestiaMiticaSerializer, ChuninSerializer, EquipoEnMisionPergaminoSerializer, EquipoEnMisionSerializer, EquipoSerializer, GeninSerializer, JouninSerializer, MisionSerializer, NinjaMedicoSerializer, NinjaSerializer, NinjaTecnicaSerializer, PergaminoSerializer, PersonaSerializer, TecnicaAtaqueSerializer, TecnicaCurativaSerializer, TecnicaSerializer
 
-from .models import BestiaMisionPergaminoLlave, BestiaMitica, Chunin, Equipo, EquipoEnMision, EquipoEnMisionPergamino, Genin, Jounin, Mision, Ninja, NinjaTecnica, Pergamino, Persona, Tecnica, TecnicaAtaque, TecnicaCurativa
+# Todos los modelos
+from api.models.Persona import Persona
+from api.models.Ninja import Ninja
+from api.models.Genin import Genin
+from api.models.Chunin import Chunin
+from api.models.Tecnica import Tecnica
+from api.models.TecnicaCurativa import TecnicaCurativa
+from api.models.TecnicaAtaque import TecnicaAtaque
+from api.models.NinjaMedico import NinjaMedico
+from api.models.NinjaTecnica import NinjaTecnica
+from api.models.Equipo import Equipo
+from api.models.BestiaMitica import BestiaMitica
+from api.models.BestiaMisionPergamino import BestiaMisionPergamino
+from api.models.EquipoEnMision import EquipoEnMision
+from api.models.EquipoEnMisionPergamino import EquipoEnMisionPergamino
+from api.models.Jounin import Jounin
+from api.models.Mision import Mision
+from api.models.Pergamino import Pergamino
+
 # Create your views here.
 @api_view(['GET'])
 def apiOverview(request):
@@ -147,6 +165,14 @@ def tecnica_ataque_list(request):
 def tecnica_ataque_detail(request,pk):
     return get_put_delete(request, pk, TecnicaAtaque, TecnicaAtaqueSerializer)
 
+#tecnicas ataque
+@api_view(['GET','POST'])
+def ninja_medico_list(request):
+    return get_post(request, NinjaMedico, NinjaMedicoSerializer)
+@api_view(['GET','PUT','DELETE'])
+def ninja_medico_detail(request,pk):
+    return get_put_delete(request, pk, NinjaMedico, NinjaMedicoSerializer)
+
 #tecnicas curativas
 @api_view(['GET','POST'])
 def tecnica_curativa_list(request):
@@ -214,7 +240,7 @@ def equipo_en_mision_pergamino_detail(request,pk):
 #bestias misiones pergamino
 @api_view(['GET','POST'])
 def bestia_mision_pergamino_list(request):
-    return get_post(request, BestiaMisionPergaminoLlave, BestiaMisionPergaminoLlaveSerializer)
+    return get_post(request, BestiaMisionPergamino, BestiaMisionPergaminoSerializer)
 @api_view(['GET','PUT','DELETE'])
 def bestia_mision_pergamino_detail(request,pk):
-    return get_put_delete(request, pk, BestiaMisionPergaminoLlave, BestiaMisionPergaminoLlaveSerializer)
+    return get_put_delete(request, pk, BestiaMisionPergamino, BestiaMisionPergaminoSerializer)

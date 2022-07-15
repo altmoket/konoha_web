@@ -1,5 +1,23 @@
 from rest_framework import serializers
-from .models import BestiaMisionPergaminoLlave, BestiaMitica, Chunin, Equipo, EquipoEnMision, EquipoEnMisionPergamino, Genin, Jounin, Mision, Ninja, NinjaMedico, NinjaTecnica, Pergamino, Persona, Tecnica, TecnicaAtaque, TecnicaCurativa
+
+# Todos los modelos
+from api.models.Persona import Persona
+from api.models.Ninja import Ninja
+from api.models.Genin import Genin
+from api.models.Chunin import Chunin
+from api.models.Tecnica import Tecnica
+from api.models.TecnicaCurativa import TecnicaCurativa
+from api.models.TecnicaAtaque import TecnicaAtaque
+from api.models.NinjaMedico import NinjaMedico
+from api.models.NinjaTecnica import NinjaTecnica
+from api.models.Equipo import Equipo
+from api.models.BestiaMitica import BestiaMitica
+from api.models.BestiaMisionPergamino import BestiaMisionPergamino
+from api.models.EquipoEnMision import EquipoEnMision
+from api.models.EquipoEnMisionPergamino import EquipoEnMisionPergamino
+from api.models.Jounin import Jounin
+from api.models.Mision import Mision
+from api.models.Pergamino import Pergamino
 
 class PersonaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -65,7 +83,7 @@ class EquipoEnMisionPergaminoSerializer(serializers.ModelSerializer):
     class Meta:
         model = EquipoEnMisionPergamino
         fields = '__all__'
-class BestiaMisionPergaminoLlaveSerializer(serializers.ModelSerializer):
+class BestiaMisionPergaminoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = BestiaMisionPergaminoLlave
+        model = BestiaMisionPergamino
         fields = '__all__'

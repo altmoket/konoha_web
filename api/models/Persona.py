@@ -1,8 +1,6 @@
 from django.db import models
-import uuid
 from datetime import date
 class Persona(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     nombre = models.CharField(max_length=50, default="")
     edad = models.IntegerField(default=12)
     SEX = (
