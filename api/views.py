@@ -1,5 +1,4 @@
 from django.shortcuts import render
-<<<<<<< HEAD
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -14,7 +13,6 @@ def apiOverview(request):
     api_urls = {
         'Persona-List': '/personas/',
         'Persona-Detail': '/personas/<str:pk>',
-        
         'Ninja-List': '/ninjas/',
         'Ninja-Detail': '/ninjas/<str:pk>',
         
@@ -38,9 +36,7 @@ def apiOverview(request):
         
         'Ninja-Tecnica-List': '/ninjas-tecnicas/',
         'Ninja-Tecnica-Detail': '/ninjas-tecnicas/<str:pk>',
-        
-        'Bestia-Mitica-List': '/bestias-miticas/',
-        'Bestia-Mitica-Detail': '/bestias-miticas/<str:pk>',
+        'Bestia-Mitica-List': '/bestias-miticas/', 'Bestia-Mitica-Detail': '/bestias-miticas/<str:pk>',
         
         'Equipo-List': '/equipos/',
         'Equipo-Detail': '/equipos/<str:pk>',
