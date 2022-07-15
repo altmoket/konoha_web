@@ -4,7 +4,24 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 
-from .serializers import BestiaMisionPergaminoSerializer, BestiaMiticaSerializer, ChuninSerializer, EquipoEnMisionPergaminoSerializer, EquipoEnMisionSerializer, EquipoSerializer, GeninSerializer, JouninSerializer, MisionSerializer, NinjaMedicoSerializer, NinjaSerializer, NinjaTecnicaSerializer, PergaminoSerializer, PersonaSerializer, TecnicaAtaqueSerializer, TecnicaCurativaSerializer, TecnicaSerializer
+# Todos los serializadores
+from api.serializers.PersonaSerializer import PersonaSerializer
+from api.serializers.NinjaSerializer import NinjaSerializer
+from api.serializers.GeninSerializer import GeninSerializer
+from api.serializers.ChuninSerializer import ChuninSerializer
+from api.serializers.TecnicaSerializer import TecnicaSerializer
+from api.serializers.TecnicaCurativaSerializer import TecnicaCurativaSerializer
+from api.serializers.TecnicaAtaqueSerializer import TecnicaAtaqueSerializer
+from api.serializers.NinjaMedicoSerializer import NinjaMedicoSerializer
+from api.serializers.NinjaTecnicaSerializer import NinjaTecnicaSerializer
+from api.serializers.EquipoSerializer import EquipoSerializer
+from api.serializers.BestiaMiticaSerializer import BestiaMiticaSerializer
+from api.serializers.BestiaMisionPergaminoSerializer import BestiaMisionPergaminoSerializer
+from api.serializers.EquipoEnMisionSerializer import EquipoEnMisionSerializer
+from api.serializers.EquipoEnMisionPergaminoSerializer import EquipoEnMisionPergaminoSerializer
+from api.serializers.JouninSerializer import JouninSerializer
+from api.serializers.MisionSerializer import MisionSerializer
+from api.serializers.PergaminoSerializer import PergaminoSerializer
 
 # Todos los modelos
 from api.models.Persona import Persona
