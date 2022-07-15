@@ -31,6 +31,7 @@ def apiOverview(request):
     api_urls = {
         'Persona-List': '/personas/',
         'Persona-Detail': '/personas/<str:pk>',
+
         'Ninja-List': '/ninjas/',
         'Ninja-Detail': '/ninjas/<str:pk>',
         
