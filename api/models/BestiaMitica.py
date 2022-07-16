@@ -4,3 +4,7 @@ class BestiaMitica(models.Model):
     nombre = models.CharField(max_length=50, default="")
     tipo = models.CharField(max_length=30, default="")
     invocador = models.ForeignKey(Ninja, on_delete=models.SET_NULL,null=True)
+    @staticmethod
+    def get_headers():
+        headers = ['ID', 'Nombre', 'Tipo', 'Invocador']
+        return headers

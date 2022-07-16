@@ -4,3 +4,7 @@ class Mision(models.Model):
     pais_cliente = models.CharField(max_length=30, default="")
     rango = models.CharField(max_length=1, default='')
     recompensa = models.IntegerField(default=0)
+    @staticmethod
+    def get_headers():
+        headers = ['ID', 'Cliente', 'Pais Cliente', 'Rango', 'Recompensa']
+        return headers

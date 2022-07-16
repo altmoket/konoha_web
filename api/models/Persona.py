@@ -11,3 +11,8 @@ class Persona(models.Model):
     sexo = models.CharField(max_length=1,choices=SEX, default='N')
     clan = models.CharField(max_length=50, default='Konoha')
     fecha_nacimiento = models.DateField(default=date(1,1,1))
+
+    @staticmethod
+    def get_headers():
+        headers = ['ID', 'Nombre', 'Edad', 'Sexo', 'Clan', 'Fecha Nacimiento']
+        return headers
