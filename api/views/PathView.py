@@ -50,5 +50,17 @@ def apiOverview(_):
         
         'Bestia-Mision-Pergamino-List': '/bestias-misiones-pergaminos/',
         'Bestia-Mision-Pergamino-Detail': '/bestias-misiones-pergaminos/<str:pk>',
+
+        'Female-Medical-Ninjas': '/female-medical-ninjas/',
+
+        'Captain-In-C-Rank-Missions': '/captain-in-C-rank-missions/',
+
+        'Ninja-Invocation-In-S-Rank-Missions': '/ninja-invocation-in-S-rank-missions/',
+
+        'Hidden-Techniques': '/hidden-techniques/',
+
+        'Medical-Ninja-Captains': '/medical-ninja-captains/',
+        
+        'Highest-Reward-Missions': '/highest-reward-missions/',
     }
     return Response(api_urls)
