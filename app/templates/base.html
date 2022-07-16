@@ -19,7 +19,7 @@
     <!-- </div>    -->
    
     <div id="selection">
-      <form action="/app/listar/" method="get">
+      <form action="{% url 'listar' %}" method="get">
         {% csrf_token %}
         {% block selection %}
           <select id="data" name="data" maxlength="100">
