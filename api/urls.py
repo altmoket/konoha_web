@@ -54,7 +54,5 @@ urlpatterns = [
     
     path('bestias-misiones-pergaminos/', BestiaMisionPergaminoView.bestia_mision_pergamino_list, name='bestias-misiones-pergaminos'),
     path('bestias-misiones-pergaminos/<str:pk>/', BestiaMisionPergaminoView.bestia_mision_pergamino_detail, name='bestia-mision-pergamino_detail'),
-
-    path('listar/', PersonaView.listar_personas, name='listar personas'),
 ]
     
