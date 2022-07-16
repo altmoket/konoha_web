@@ -54,5 +54,13 @@ urlpatterns = [
     
     path('bestias-misiones-pergaminos/', BestiaMisionPergaminoView.bestia_mision_pergamino_list, name='bestias-misiones-pergaminos'),
     path('bestias-misiones-pergaminos/<str:pk>/', BestiaMisionPergaminoView.bestia_mision_pergamino_detail, name='bestia-mision-pergamino_detail'),
+
+    path('female-medical-ninjas/', consultas.female_medical_ninjas, name='female-medical-ninjas'),
+    path('captain-in-C-rank-missions/', consultas.captain_in_C_rank_missions, name='captain-in-C-rank-missions'),
+    path('ninja-invocation-in-S-rank-missions/', consultas.ninja_invocation_in_S_rank_missions, name='ninja-invocation-in-S-rank-missions'),
+    path('hidden-techniques/', consultas.hidden_techniques, name='hidden-techniques'),
+    path('medical-ninja-captains/', consultas.medical_ninja_captains, name='medical-ninja-captains'),
+    path('highest-reward-missions/', consultas.highest_reward_missions, name='highest-reward-missions')
+
 ]
     
