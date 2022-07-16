@@ -2,6 +2,14 @@ from django.db import models
 from api.models.Tecnica import Tecnica
 class TecnicaCurativa(Tecnica):
     velocidad_curacion = models.IntegerField(default=0)
+    def __iter__(self):
+        yield self.pk
+        yield self.nombre
+        yield self.elemento
+        yield self.es_oculta
+        yield self.cantidad_chakra
+        yield self.pk
+        yield self.velocidad_curacion
     @staticmethod
     def get_headers():
         headers = Tecnica.get_headers()

@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
     <title>{% block title %}Konoha's Database{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
   <body>
-    <div id="sidebar">
-      {% block sidebar %}
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/your-name/">Your Name</a></li>    
-        </ul>     
-      {% endblock %}
-    </div>   
+    
+    <!-- <div id="sidebar"> -->
+    <!--   {% block sidebar %} -->
+    <!--     <ul> -->
+    <!--       <li><a href="/">Home</a></li> -->
+    <!--       <li><a href="/your-name/">Your Name</a></li>     -->
+    <!--     </ul>      -->
+    <!--   {% endblock %} -->
+    <!-- </div>    -->
+   
     <div id="selection">
       <form action="/app/listar/" method="get">
         {% csrf_token %}
         {% block selection %}
           <select id="data" name="data" maxlength="100">
-            <option value="Persona" selected>Personas</option> 
-            <option value="Ninja">Ninjas</option> 
-            <option value="Genin">Genins</option> 
-            <option value="Chunin">Chunins</option> 
-            <option value="Jounin">Jounins</option> 
-            <option value="Tecnica">Tecnicas</option> 
-            <option value="TecnicaAtaque">Tecnicas de Ataque</option> 
-            <option value="TecnicaCurativa">Tecnicas Curativas</option> 
-            <option value="NinjaTecnica">Ninjas-Tecnicas</option> 
-            <option value="NinjaMedico">Ninjas Medico</option> 
-            <option value="Equipo">Equipos</option> 
-            <option value="Mision">Misiones</option> 
-            <option value="EquipoEnMision">Equipos en Misiones</option> 
-            <option value="Pergamino">Pergaminos</option> 
-            <option value="EquipoEnMisionPergamino">Equipos en Misiones con Pergaminos</option> 
-            <option value="BestiaMitica">Bestias Miticas</option> 
-            <option value="BestiaMisionPergamino">Bestias Misiones Pergaminos</option> 
+            <option value="Persona" {% if selected == 'Persona' %}selected{% endif %}>Personas</option> 
+            <option value="Ninja" {% if selected == 'Ninja' %}selected{% endif %}>Ninjas</option> 
+            <option value="Genin" {% if selected == 'Genin' %}selected{% endif %}>Genins</option> 
+            <option value="Chunin" {% if selected == 'Chunin' %}selected{% endif %}>Chunins</option> 
+            <option value="Jounin" {% if selected == 'Jounin' %}selected{% endif %}>Jounins</option> 
+            <option value="Tecnica" {% if selected == 'Tecnica' %}selected{% endif %}>Tecnicas</option> 
+            <option value="TecnicaAtaque" {% if selected == 'TecnicaAtaque' %}selected{% endif %}>Tecnicas de Ataque</option> 
+            <option value="TecnicaCurativa" {% if selected == 'TecnicaCurativa' %}selected{% endif %}>Tecnicas Curativas</option> 
+            <option value="NinjaTecnica" {% if selected == 'NinjaTecnica' %}selected{% endif %}>Ninjas-Tecnicas</option> 
+            <option value="NinjaMedico" {% if selected == 'NinjaMedico' %}selected{% endif %}>Ninjas Medico</option> 
+            <option value="Equipo" {% if selected == 'Equipo' %}selected{% endif %}>Equipos</option> 
+            <option value="Mision" {% if selected == 'Mision' %}selected{% endif %}>Misiones</option> 
+            <option value="EquipoEnMision" {% if selected == 'EquipoEnMision' %}selected{% endif %}>Equipos en Misiones</option> 
+            <option value="Pergamino" {% if selected == 'Pergamino' %}selected{% endif %}>Pergaminos</option> 
+            <option value="EquipoEnMisionPergamino" {% if selected == 'EquipoEnMisionPergamino' %}selected{% endif %}>Equipos en Misiones con Pergaminos</option> 
+            <option value="BestiaMitica" {% if selected == 'BestiaMitica' %}selected{% endif %}>Bestias Miticas</option> 
+            <option value="BestiaMisionPergamino" {% if selected == 'BestiaMisionPergamino' %}selected{% endif %}>Bestias Misiones Pergaminos</option> 
           </select>   
         {% endblock %}  
         <input type="submit" value="Seleccionar">

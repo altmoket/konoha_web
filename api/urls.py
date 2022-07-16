@@ -34,8 +34,8 @@ urlpatterns = [
     path('ninjas-tecnicas/', NinjaTecnicaView.ninja_tecnica_list, name='ninjas-tecnicas'),
     path('ninjas-tecnicas/<str:pk>/', NinjaTecnicaView.ninja_tecnica_detail, name='ninja-tecnica_detail'),
     
-    path('bestias-miticas/', BestiaMiticaView.bestia_mitica_list, name='bestias-miticas'),
     path('bestias-miticas/<str:pk>/', BestiaMiticaView.bestia_mitica_detail, name='bestia-mitica_detail'),
+    path('bestias-miticas/', BestiaMiticaView.bestia_mitica_list, name='bestias-miticas'),
     
     path('equipos/', EquipoView.equipo_list, name='equipos'),
     path('equipos/<str:pk>/', EquipoView.equipo_detail, name='equipo_detail'),

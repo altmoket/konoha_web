@@ -18,6 +18,17 @@ class EquipoEnMision(models.Model):
     cantidad_kunais = models.IntegerField(default=0)
     cantidad_sellos = models.IntegerField(default=0)
     capitan = models.ForeignKey(Jounin, on_delete=models.CASCADE, null=False)
+    def __iter__(self):
+        yield self.pk
+        yield self.equipo
+        yield self.mision
+        yield self.fecha_inicio
+        yield self.fecha_fin
+        yield self.resultado
+        yield self.cantidad_shurikens
+        yield self.cantidad_kunais
+        yield self.cantidad_sellos
+        yield self.capitan
     @staticmethod
     def get_headers():
         headers = ['ID','ID Equipo', 'ID Mision', 'Fecha Inicio', 'Fecha Fin', 'Resultado', 'Cantidad Shurikens', 'Cantidad Kunais','Cantidad Sellos', 'Capitan']

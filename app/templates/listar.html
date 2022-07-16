@@ -2,7 +2,30 @@
 {% extends "base.html" %}
 
 {% block title %}Listado{% endblock %}
-
+{# data headers records #}
 {% block content %}
-  {{data}} 
+  <table>
+    <tr>
+      {% for header in headers %}
+      <th>
+        {{header}}
+      </th>    
+      {% endfor %}
+      <th>Acciones</th>
+    </tr>
+    {% for record in records %}
+    <tr>
+    {% for value in record%}
+      <td>
+        {{value}}  
+      </td>
+    {% endfor %}
+      <td>
+        <button>Editar</button>
+        <button>Eliminar</button>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <button>Agregar</button>
 {% endblock %}

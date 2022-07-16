@@ -11,5 +11,11 @@ class BestiaMisionPergamino(models.Model):
     def get_headers():
         headers = ['ID', 'ID Bestia', 'ID Mision', 'ID Pergamino']
         return headers
+    def __iter__(self):
+        yield self.pk
+        yield self.bestia
+        yield self.mision
+        yield self.pergamino
+
     class Meta:
         unique_together =[ ['bestia','mision','pergamino']]
