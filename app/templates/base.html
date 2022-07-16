@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}Konoha's Database{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="sidebar">
+      {% block sidebar %}
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/your-name/">Your Name</a></li>    
+        </ul>     
+      {% endblock %}
+    </div>   
+    <div id="selection">
+      <form action="/app/listar/" method="get">
+        {% csrf_token %}
+        {% block selection %}
+          <select id="data" name="data" maxlength="100">
+            <option value="Persona" selected>Personas</option> 
+            <option value="Ninja">Ninjas</option> 
+            <option value="Genin">Genins</option> 
+            <option value="Chunin">Chunins</option> 
+            <option value="Jounin">Jounins</option> 
+            <option value="Tecnica">Tecnicas</option> 
+            <option value="TecnicaAtaque">Tecnicas de Ataque</option> 
+            <option value="TecnicaCurativa">Tecnicas Curativas</option> 
+            <option value="NinjaTecnica">Ninjas-Tecnicas</option> 
+            <option value="NinjaMedico">Ninjas Medico</option> 
+            <option value="Equipo">Equipos</option> 
+            <option value="Mision">Misiones</option> 
+            <option value="EquipoEnMision">Equipos en Misiones</option> 
+            <option value="Pergamino">Pergaminos</option> 
+            <option value="EquipoEnMisionPergamino">Equipos en Misiones con Pergaminos</option> 
+            <option value="BestiaMitica">Bestias Miticas</option> 
+            <option value="BestiaMisionPergamino">Bestias Misiones Pergaminos</option> 
+          </select>   
+        {% endblock %}  
+        <input type="submit" value="Seleccionar">
+      </form> 
+    </div>
+    <div id="content">
+      {% block content %}{% endblock %} 
+    </div>
+  </body>
+</html>

@@ -1,11 +1,25 @@
+
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 
+from app.forms import NameForm
 
-# Create your views here.
-@api_view(['GET'])
-def index(_):
-    api_urls = {
-    }
-    return Response(api_urls)
+def get_name(request):
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+
+        if form.is_valid():
+            return HttpResponseRedirect('/app/thanks/')
+    else:
+        form = NameForm()
+
+    return render(request, 'name.html', {'form': form})
+
+def home(request):
+    return render(request, 'home.html', {})
+
+def listar(request):
+    if request.method == 'GET':
+        data = str(request.GET['data'])
+        return render(request, 'listar.html', {'data':data})
+    return render(request, 'home.html', {})
