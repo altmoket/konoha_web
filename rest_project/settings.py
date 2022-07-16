@@ -44,6 +44,8 @@ INSTALLED_APPS = [
 
     'api.apps.ApiConfig',
 
+    'app.apps.ApiConfig',
+
     'rest_framework'
 ]
 
