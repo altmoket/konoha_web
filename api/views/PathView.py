@@ -31,13 +31,18 @@ def apiOverview(_):
         
         'Ninja-Tecnica-List': '/ninjas-tecnicas/',
         'Ninja-Tecnica-Detail': '/ninjas-tecnicas/<str:pk>',
-        'Bestia-Mitica-List': '/bestias-miticas/', 'Bestia-Mitica-Detail': '/bestias-miticas/<str:pk>',
+        
+        'Bestia-Mitica-List': '/bestias-miticas/',
+        'Bestia-Mitica-Detail': '/bestias-miticas/<str:pk>',
         
         'Equipo-List': '/equipos/',
         'Equipo-Detail': '/equipos/<str:pk>',
         
         'Mision-List': '/misiones/',
         'Mision-Detail': '/misiones/<str:pk>',
+
+        'Ninja-Medico-List':'/ninjas-medicos/',
+        'Ninja-Medico-Detail': '/ninjas-medicos/<str:pk>',
         
         'Equipo-En-Mision-List': '/equipos-en-misiones/',
         'Equipo-En-Mision-Detail': '/equipos-en-misiones/<str:pk>',

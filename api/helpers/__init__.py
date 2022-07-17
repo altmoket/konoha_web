@@ -3,11 +3,13 @@ from rest_framework.response import Response
 
 
 def get_post(request, clase, serializador):
+    print(request.data)
     if request.method == 'GET':
         objects = clase.objects.all()
         serializer = serializador(objects, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
+        # clase.save(request.data["id"])
         serializer = serializador(data=request.data)
         if serializer.is_valid():
             serializer.save()
