@@ -18,6 +18,8 @@ class EquipoEnMision(models.Model):
     cantidad_kunais = models.IntegerField(default=0)
     cantidad_sellos = models.IntegerField(default=0)
     capitan = models.ForeignKey(Jounin, on_delete=models.CASCADE, null=False)
+    def __str__(self):
+        return 'EM' + '('+ str(self.pk) + ')'
     def __iter__(self):
         yield self.pk
         yield self.equipo

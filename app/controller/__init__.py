@@ -41,8 +41,9 @@ def get_options(data):
 
 def create_element(data, values):
     types = get_types(data)
+    pointers = get_pointers(data)
     for i in range(len(types)):
-        if types[i] == 'Int' or types[i] == 'Select':
+        if types[i] == 'Int':
             values[i] = int(values[i])
         elif types[i] == 'Boolean':
             if values[i] == 'True':
@@ -52,6 +53,10 @@ def create_element(data, values):
         elif types[i] == 'Date':
             fecha = datetime.strptime(values[i], '%Y-%m-%d')
             values[i] = fecha
+        elif types[i] == 'Select':
+            pk = int(values[i])
+            record = repository.get_record(pointers[i], pk)
+            values[i] = record
     repository.create_element(data,values)
     
     

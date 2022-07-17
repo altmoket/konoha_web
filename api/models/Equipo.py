@@ -6,6 +6,8 @@ class Equipo(models.Model):
     ninja1 = models.OneToOneField(Ninja, on_delete=models.CASCADE, related_name='exceptuar_ninja_1', null=False, primary_key=True)
     ninja2 = models.ForeignKey(Ninja, on_delete=models.CASCADE, related_name='exceptuar_ninja_2', null=False)
     ninjamedico = models.ForeignKey(NinjaMedico, on_delete=models.CASCADE, null=False)
+    def __str__(self):
+        return str(self.nombre) + '('+ str(self.pk) + ')'
     def __iter__(self):
         yield self.pk
         yield self.nombre

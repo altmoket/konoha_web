@@ -4,6 +4,8 @@ from api.models.Tecnica import Tecnica
 class NinjaTecnica(models.Model):
     ninja = models.OneToOneField(Ninja, on_delete=models.CASCADE, null=False, primary_key=True)
     tecnica = models.ForeignKey(Tecnica, on_delete=models.CASCADE, null=False)
+    def __str__(self):
+        return 'NT(' + str(self.pk) + ')'
     def __iter__(self):
         yield self.pk
         yield self.ninja

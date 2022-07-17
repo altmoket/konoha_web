@@ -4,6 +4,8 @@ class Mision(models.Model):
     pais_cliente = models.CharField(max_length=30, default="")
     rango = models.CharField(max_length=1, default='')
     recompensa = models.IntegerField(default=0)
+    def __str__(self):
+        return 'M(' + str(self.pk) + ')'
     def __iter__(self):
         yield self.pk
         yield self.cliente

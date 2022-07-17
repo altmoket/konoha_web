@@ -12,6 +12,8 @@ class Persona(models.Model):
     clan = models.CharField(max_length=50, default='Konoha')
     fecha_nacimiento = models.DateField(default=date(1,1,1))
 
+    def __str__(self):
+        return str(self.nombre) + '('+ str(self.pk) + ')'
     def __iter__(self):
         yield self.pk
         yield self.nombre

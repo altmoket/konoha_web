@@ -1,6 +1,6 @@
 
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from rest_framework.decorators import api_view
 from app import controller
 
@@ -37,7 +37,7 @@ def agregar_elemento(request):
     for name in names:
         values.append(all_values[name])
     controller.create_element(data, values)
-    return home(request)
+    return redirect('/app/listar?data='+data) 
 @api_view(['GET'])
 def agregar_view(request, data):
     if request.method == 'GET':

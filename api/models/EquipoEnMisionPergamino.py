@@ -4,6 +4,8 @@ from api.models.Pergamino import Pergamino
 class EquipoEnMisionPergamino(models.Model):
     equipoenmision = models.OneToOneField(EquipoEnMision, on_delete=models.CASCADE, null=False, primary_key=True)
     pergamino = models.ForeignKey(Pergamino, on_delete=models.CASCADE, null=False)
+    def __str__(self):
+        return 'BMP(' + str(self.pk) + ')'
     def __iter__(self):
         yield self.pk
         yield self.equipoenmision

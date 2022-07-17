@@ -9,6 +9,11 @@ def get_records(data):
     records = model.objects.all()
     return records
 
+def get_record(data, id):
+    model = helpers.get_model(data)
+    record = model.objects.get(pk=id)
+    return record
+
 def exist_model(data):
     return helpers.exist_model(data)
 
