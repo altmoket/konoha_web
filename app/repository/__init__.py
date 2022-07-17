@@ -35,4 +35,9 @@ def create_element(data,values):
     record = model()
     record.add_values(values)
     record.save()
+
+def delete_element(data, id):
+    model = helpers.get_model(data)
+    record = model.objects.get(pk=id)
+    record.delete()
     

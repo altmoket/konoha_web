@@ -58,6 +58,9 @@ def create_element(data, values):
             record = repository.get_record(pointers[i], pk)
             values[i] = record
     repository.create_element(data,values)
+
+def delete_element(data, pk):
+    repository.delete_element(data,pk)
     
     
 def create_form(data):

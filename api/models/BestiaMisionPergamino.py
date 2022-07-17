@@ -35,7 +35,7 @@ class BestiaMisionPergamino(models.Model):
         return types
     @staticmethod
     def get_pointers():
-        pointers = ['Bestia','Mision','Pergamino']
+        pointers = ['BestiaMitica','Mision','Pergamino']
         return pointers
     class Meta:
         unique_together =[ ['bestia','mision','pergamino']]

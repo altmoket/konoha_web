@@ -48,3 +48,8 @@ def agregar_view(request, data):
             lista_conjunta = zip(names,types,options)
             return render(request, 'agregar.html', {'data':data, 'lista_conjunta':lista_conjunta, 'selected':data})
     return home(request)
+
+@api_view(['GET'])
+def eliminar_elemento(_, data, pk):
+    controller.delete_element(data, pk)
+    return redirect('/app/listar?data='+data) 
