@@ -1,0 +1,41 @@
+<html>
+  
+</html>   
+{% extends "base.html" %}
+
+{% block title %}Listado{% endblock %}
+{# data lista_conjunta=[headers types options] #}
+{% block content %}
+  <form action="{% url 'agregar elemento' %}" method="post">
+   {% csrf_token %} 
+   {% for name,type,options in lista_conjunta %}
+     <label for="{{name}}">{{name}}:</label>
+     <br>
+   {% if type == 'Char' %}
+     <input type="text" id="{{name}}" name="{{name}}" maxlength="100" required="">
+     <br>
+   {% elif type == 'Int' %}
+     <input type="number" id="{{name}}" name="{{name}}" maxlength="100" required="">
+     <br>
+   {% elif type == 'Choices' %}
+     <select id="{{name}}" name="{{name}}" maxlength="100">
+         {% for option in options %}
+         <option value="{{option}}">{{option}}</option>
+         {% endfor %}
+      </select>
+      <br>
+   {% elif type == 'Select' %}
+     <select id="{{name}}" name="{{name}}" maxlength="100">
+         {% for option in options %}
+         <option value="{{option}}">{{option}}</option>
+         {% endfor %}
+      </select>
+      <br>
+   {% elif type == 'Date' %}
+     <input type="date" id="{{name}}" name="{{name}}" maxlength="100" required="">
+     <br>
+   {% endif %}
+   {% endfor %}
+    <input type="submit" value="Crear">
+  </form>   
+{% endblock %}
