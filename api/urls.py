@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import PersonaView, NinjaView, BestiaMisionPergaminoView,BestiaMiticaView, ChuninView, EquipoEnMisionPergaminoView, EquipoEnMisionView, EquipoView, GeninView, JouninView, MisionView, NinjaMedicoView, NinjaTecnicaView, PathView, PergaminoView, TecnicaAtaqueView, TecnicaCurativaView, TecnicaView
+from .views import PersonaView, NinjaView, BestiaMisionPergaminoView,BestiaMiticaView, ChuninView, EquipoEnMisionPergaminoView, EquipoEnMisionView, EquipoView, GeninView, JouninView, MisionView, NinjaMedicoView, NinjaTecnicaView, PathView, PergaminoView, TecnicaAtaqueView, TecnicaCurativaView, TecnicaView, consultas
 urlpatterns = [
     path('', PathView.apiOverview, name='api-overview'),
     
