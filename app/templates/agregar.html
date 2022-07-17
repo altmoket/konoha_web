@@ -1,14 +1,11 @@
-<html>
-  
-</html>   
 {% extends "base.html" %}
 
-{% block title %}Listado{% endblock %}
-{# data lista_conjunta=[headers types options] #}
+{% block title %}Creando Elemento{% endblock %}
+{#data lista_conjunta=[headers types options] #}
 {% block content %}
   <form action="{% url 'agregar elemento' %}" method="post">
    {% csrf_token %} 
-   <input type="hidden" id="data" name="data" value="{{data}}">
+     <input type="hidden" id="data" name="data" value="{{data}}">
    {% for name,type,options in lista_conjunta %}
      <label for="{{name}}">{{name}}:</label>
      <br>

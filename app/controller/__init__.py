@@ -1,7 +1,5 @@
-
 from datetime import datetime
 from app import repository
-from app.forms import FormCreator
 
 def get_headers(data):
     headers = repository.get_headers(data)
@@ -10,6 +8,19 @@ def get_headers(data):
 def get_records(data):
     records = repository.get_records(data)
     return records
+
+def get_record(data, pk):
+    record = repository.get_record(data, pk)
+    return record
+
+def get_record_in_array(data, pk):
+    record = repository.get_record(data, pk)
+    types = get_types(data)
+    lista = zip(record,types)
+    attributes = []
+    for attribute,tp in lista:
+        attributes.append(attribute) 
+    return attributes
 
 def exist_model(data):
     return repository.exist_model(data)
@@ -61,20 +72,3 @@ def create_element(data, values):
 
 def delete_element(data, pk):
     repository.delete_element(data,pk)
-    
-    
-def create_form(data):
-    headers = get_headers(data)
-    types = repository.get_types(data)
-    pointers = repository.get_pointers(data)
-    options = []
-    for i in range(len(types)):
-        if types[i] == 'Select':
-            pks = repository.get_all_pk(data)
-            options.append(pks)
-        elif types[i] == 'Choices':
-            options.append(pointers[i])
-        else:
-            options.append('')
-    form = FormCreator(data,headers,types,options)
-    return form

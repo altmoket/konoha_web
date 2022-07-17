@@ -1,0 +1,49 @@
+<html>
+  
+</html>
+{% extends "base.html" %}
+
+{% block title %}Editando elemento{% endblock %}
+{#data lista_conjunta=[headers types options record] pk#}
+{% block content %}
+  <form action="{% url 'editar elemento' %}" method="post">
+   {% csrf_token %} 
+     <input type="hidden" id="data" name="data" value="{{data}}">
+     <input type="hidden" id="ID" name="ID" value="{{pk}}">
+   {% for name,type,options,value in lista_conjunta %}
+     <label for="{{name}}">{{name}}:</label>
+     <br>
+   {% if type == 'Char' %}
+  <input type="text" id="{{name}}" name="{{name}}" value="{{value}}" maxlength="100" required="">
+     <br>
+   {% elif type == 'Int' %}
+  <input type="number" id="{{name}}" name="{{name}}" value="{{value}}" maxlength="100" required="">
+     <br>
+   {% elif type == 'Choices' %}
+      <select id="{{name}}" name="{{name}}" maxlength="100">
+         {% for option in options %}
+      <option value="{{option}}" {% if option == value %}selected{% endif %}>{{option}}</option>
+         {% endfor %}
+      </select>
+      <br>
+   {% elif type == 'Select' %}
+      <select id="{{name}}" name="{{name}}" maxlength="100">
+         {% for option in options %}
+         <option value="{{option}}"{% if option == value %}selected{% endif %}>{{option}}</option>
+         {% endfor %}
+      </select>
+      <br>
+   {% elif type == 'Date' %}
+      <input type="date" id="{{name}}" name="{{name}}" value="{{value}}" maxlength="100" required="">
+     <br>
+   {% elif type == 'Boolean' %}
+      <select id="{{name}}" name="{{name}}" maxlength="100">
+         <option value="True" {% if value == True %}selected{% endif %}>True</option>
+         <option value="False" {% if value == False %}selected{% endif %}>False</option>
+      </select>
+      <br>
+   {% endif %}
+   {% endfor %}
+    <input type="submit" value="Editar">
+  </form>   
+{% endblock %}

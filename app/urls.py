@@ -1,13 +1,14 @@
 
 from django.urls import path
 
-from app.views import get_name, home, listar, agregar_view, agregar_elemento, eliminar_elemento
+from app.views import home, listar, agregar, agregar_elemento, eliminar_elemento, editar, editar_elemento
 urlpatterns = [
     path('', home, name="Home"),
-    path('your-name/', get_name, name="Your Name"),
     path('listar/', listar, name="listar"),
-    path('agregar/<str:data>', agregar_view, name="agregar"),
+    path('editar/<str:data>/<int:pk>', editar, name="editar"),
+    path('agregar/<str:data>', agregar, name="agregar"),
     path('agregar/', agregar_elemento, name="agregar elemento"),
+    path('editar/', editar_elemento, name="editar elemento"),
     path('eliminar/<str:data>/<int:pk>', eliminar_elemento, name="eliminar elemento")
 ]
     
