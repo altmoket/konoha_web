@@ -13,3 +13,11 @@ class BestiaMitica(models.Model):
     def get_headers():
         headers = ['ID', 'Nombre', 'Tipo', 'Invocador']
         return headers
+    @staticmethod
+    def get_types():
+        types = ['Char','Char','Select']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['','','Ninja']
+        return pointers

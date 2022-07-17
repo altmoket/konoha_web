@@ -23,3 +23,11 @@ class Persona(models.Model):
     def get_headers():
         headers = ['ID', 'Nombre', 'Edad', 'Sexo', 'Clan', 'Fecha Nacimiento']
         return headers
+    @staticmethod
+    def get_types():
+        types = ['Char','Int','Choices','Char','Date']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['','',['M','F','N'],'','']
+        return pointers

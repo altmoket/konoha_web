@@ -14,4 +14,11 @@ class NinjaMedico(Ninja):
     def get_headers():
         headers = Ninja.get_headers()
         return headers
-    pass
+    @staticmethod
+    def get_types():
+        types = Ninja.get_types()
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = Ninja.get_pointers()
+        return pointers

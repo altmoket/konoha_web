@@ -35,3 +35,11 @@ class EquipoEnMision(models.Model):
         return headers
     class Meta:
         unique_together = [['equipo','mision']]
+    @staticmethod
+    def get_types():
+        types = ['Select','Select','Date','Date','Choices','Int','Int','Int','Select']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['Equipo','Mision','','',['S','SN','P'],'','','','Jounin']
+        return pointers

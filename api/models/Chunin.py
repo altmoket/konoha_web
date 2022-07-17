@@ -21,3 +21,15 @@ class Chunin(Ninja):
         headers.append('Fecha Examen')
         headers.append('Calificacion Examen')
         return headers
+    @staticmethod
+    def get_types():
+        types = Ninja.get_types()
+        types.append('Date')
+        types.append('Int')
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = Ninja.get_pointers()
+        pointers.append('')
+        pointers.append('')
+        return pointers

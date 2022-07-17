@@ -11,4 +11,17 @@ def get_records(data):
 
 def exist_model(data):
     return helpers.exist_model(data)
+
+def get_types(data):
+    return helpers.get_types(data)
+
+def get_pointers(data):
+    return helpers.get_pointers(data)
         
+def get_all_pk(data):
+    records = get_records(data)
+    pks = []
+    for record in records:
+        pks.append(record.pk)
+    return pks
+    

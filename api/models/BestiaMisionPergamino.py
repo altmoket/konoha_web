@@ -11,6 +11,16 @@ class BestiaMisionPergamino(models.Model):
     def get_headers():
         headers = ['ID', 'ID Bestia', 'ID Mision', 'ID Pergamino']
         return headers
+    @staticmethod
+    def get_types():
+        types = ['Select','Select','Select']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['Bestia','Mision','Pergamino']
+        return pointers
+        
+        
     def __iter__(self):
         yield self.pk
         yield self.bestia

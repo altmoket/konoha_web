@@ -12,5 +12,13 @@ class EquipoEnMisionPergamino(models.Model):
     def get_headers():
         headers = ['ID','ID Equipo En Mision', 'ID Pergamino']
         return headers
+    @staticmethod
+    def get_types():
+        types = ['Select','Select']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['EquipoEnMision','Pergamino']
+        return pointers
     class Meta:
         unique_together = [['equipoenmision','pergamino']]

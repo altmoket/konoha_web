@@ -18,3 +18,15 @@ class Ninja(Persona):
         headers.append('Chakra Maximo')
         headers.append('Sobrenombre')
         return headers
+    @staticmethod
+    def get_types():
+        types = Persona.get_types()
+        types.append('Int')
+        types.append('Char')
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = Persona.get_pointers()
+        pointers.append('')
+        pointers.append('')
+        return pointers

@@ -32,4 +32,13 @@ def get_model(data):
 
 def get_headers(data):
     return headers[data]
+
+def get_types(data):
+    model = models[data]
+    return model.get_types() 
+
+def get_pointers(data):
+    model = models[data]
+    return model.get_pointers() 
+    
     

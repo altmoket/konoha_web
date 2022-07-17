@@ -15,3 +15,11 @@ class Pergamino(models.Model):
     def get_headers():
         headers = ['ID', 'ID Ninja', 'ID Tecnica', 'Fecha Sellado']
         return headers
+    @staticmethod
+    def get_types():
+        types = ['Select','Select','Date']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['Ninja','Tecnica','']
+        return pointers

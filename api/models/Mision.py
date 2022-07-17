@@ -14,3 +14,11 @@ class Mision(models.Model):
     def get_headers():
         headers = ['ID', 'Cliente', 'Pais Cliente', 'Rango', 'Recompensa']
         return headers
+    @staticmethod
+    def get_types():
+        types = ['Char','Char','Char','Int']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['','','','']
+        return pointers

@@ -15,3 +15,13 @@ class TecnicaAtaque(Tecnica):
         headers = Tecnica.get_headers()
         headers.append("Rango Ataque")
         return headers
+    @staticmethod
+    def get_types():
+        types = Tecnica.get_types()
+        types.append('Int')
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = Tecnica.get_pointers()
+        pointers.append('')
+        return pointers

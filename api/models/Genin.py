@@ -21,4 +21,16 @@ class Genin(Ninja):
         headers.append('Fecha Graduacion')
         headers.append('Valoracion')
         return headers
+    @staticmethod
+    def get_types():
+        types = Ninja.get_types()
+        types.append('Date')
+        types.append('Char')
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = Ninja.get_pointers()
+        pointers.append('')
+        pointers.append('')
+        return pointers
 

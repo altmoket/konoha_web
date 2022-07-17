@@ -12,5 +12,13 @@ class NinjaTecnica(models.Model):
     def get_headers():
         headers = ['ID', 'ID Ninja', 'ID Tecnica']
         return headers
+    @staticmethod
+    def get_types():
+        types = ['Select','Select']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['Ninja','Tecnica']
+        return pointers
     class Meta:
         unique_together = [['ninja','tecnica']]

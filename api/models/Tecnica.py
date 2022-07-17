@@ -14,3 +14,11 @@ class Tecnica(models.Model):
     def get_headers():
         headers = ['ID', 'Nombre', 'Elemento', 'Es Oculta', 'Cantidad Chakra']
         return headers
+    @staticmethod
+    def get_types():
+        types = ['Char','Char','Boolean','Int']
+        return types
+    @staticmethod
+    def get_pointers():
+        pointers = ['','','','']
+        return pointers
