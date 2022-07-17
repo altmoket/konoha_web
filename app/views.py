@@ -30,6 +30,13 @@ def listar(request):
     return home(request)
 @api_view(['POST'])
 def agregar_elemento(request):
+    all_values = request.POST
+    data = request.POST['data']
+    names = controller.get_names(data)
+    values = []
+    for name in names:
+        values.append(all_values[name])
+    controller.create_element(data, values)
     return home(request)
 @api_view(['GET'])
 def agregar_view(request, data):

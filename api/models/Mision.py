@@ -10,6 +10,18 @@ class Mision(models.Model):
         yield self.pais_cliente
         yield self.rango
         yield self.recompensa
+    def add_values(self, values):
+        headers = Mision.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'Cliente':
+                self.cliente = values[i]
+            elif headers[i] == 'Pais Cliente':
+                self.pais_cliente = values[i]
+            elif headers[i] == 'Rango':
+                self.rango = values[i]
+            elif headers[i] == 'Recompensa':
+                self.recompensa = values[i]
     @staticmethod
     def get_headers():
         headers = ['ID', 'Cliente', 'Pais Cliente', 'Rango', 'Recompensa']

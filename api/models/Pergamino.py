@@ -11,6 +11,16 @@ class Pergamino(models.Model):
         yield self.ninja
         yield self.tecnica
         yield self.fecha_sellado
+    def add_values(self, values):
+        headers = Pergamino.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'ID Ninja':
+                self.ninja = values[i]
+            elif headers[i] == 'ID Tecnica':
+                self.tecnica = values[i]
+            elif headers[i] == 'Fecha Sellado':
+                self.fecha_sellado = values[i]
     @staticmethod
     def get_headers():
         headers = ['ID', 'ID Ninja', 'ID Tecnica', 'Fecha Sellado']

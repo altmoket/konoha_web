@@ -29,6 +29,28 @@ class EquipoEnMision(models.Model):
         yield self.cantidad_kunais
         yield self.cantidad_sellos
         yield self.capitan
+    def add_values(self, values):
+        headers = EquipoEnMision.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'ID Equipo':
+                self.equi = values[i]
+            elif headers[i] == 'ID Mision':
+                self.misi = values[i]
+            elif headers[i] == 'Fecha Inicio':
+                self.fecha_inicio = values[i]
+            elif headers[i] == 'Fecha Fin':
+                self.fecha_fin = values[i]
+            elif headers[i] == 'Resultado':
+                self.resultado = values[i]
+            elif headers[i] == 'Cantidad Shurikens':
+                self.cantidad_shurikens = values[i]
+            elif headers[i] == 'Cantidad Kunais':
+                self.cantidad_kunais = values[i]
+            elif headers[i] == 'Cantidad Sellos':
+                self.cantidad_sellos = values[i]
+            elif headers[i] == 'Capitan':
+                self.capitan = values[i]
     @staticmethod
     def get_headers():
         headers = ['ID','ID Equipo', 'ID Mision', 'Fecha Inicio', 'Fecha Fin', 'Resultado', 'Cantidad Shurikens', 'Cantidad Kunais','Cantidad Sellos', 'Capitan']

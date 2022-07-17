@@ -9,6 +9,16 @@ class BestiaMitica(models.Model):
         yield self.nombre
         yield self.tipo
         yield self.invocador
+    def add_values(self, values):
+        headers = BestiaMitica.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'Nombre':
+                self.nombre = values[i]
+            elif headers[i] == 'Tipo':
+                self.tipo = values[i]
+            elif headers[i] == 'Invocador':
+                self.invocador = values[i]
     @staticmethod
     def get_headers():
         headers = ['ID', 'Nombre', 'Tipo', 'Invocador']

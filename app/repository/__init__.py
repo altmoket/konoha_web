@@ -24,4 +24,10 @@ def get_all_pk(data):
     for record in records:
         pks.append(record.pk)
     return pks
+
+def create_element(data,values):
+    model = helpers.get_model(data)
+    record = model()
+    record.add_values(values)
+    record.save()
     

@@ -8,6 +8,7 @@
 {% block content %}
   <form action="{% url 'agregar elemento' %}" method="post">
    {% csrf_token %} 
+   <input type="hidden" id="data" name="data" value="{{data}}">
    {% for name,type,options in lista_conjunta %}
      <label for="{{name}}">{{name}}:</label>
      <br>
@@ -34,6 +35,12 @@
    {% elif type == 'Date' %}
      <input type="date" id="{{name}}" name="{{name}}" maxlength="100" required="">
      <br>
+   {% elif type == 'Boolean' %}
+     <select id="{{name}}" name="{{name}}" maxlength="100">
+         <option value="True">True</option>
+         <option value="False">False</option>
+      </select>
+      <br>
    {% endif %}
    {% endfor %}
     <input type="submit" value="Crear">

@@ -8,6 +8,14 @@ class EquipoEnMisionPergamino(models.Model):
         yield self.pk
         yield self.equipoenmision
         yield self.pergamino
+    def add_values(self, values):
+        headers = EquipoEnMisionPergamino.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'ID Equipo En Mision':
+                self.equipoenmision = values[i]
+            elif headers[i] == 'ID Pergamino':
+                self.pergamino = values[i]
     @staticmethod
     def get_headers():
         headers = ['ID','ID Equipo En Mision', 'ID Pergamino']

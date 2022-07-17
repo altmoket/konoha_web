@@ -12,6 +12,18 @@ class Equipo(models.Model):
         yield self.ninja1
         yield self.ninja2
         yield self.ninjamedico
+    def add_values(self, values):
+        headers = Equipo.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'Nombre':
+                self.nombre = values[i]
+            elif headers[i] == 'ID Ninja1':
+                self.ninja1 = values[i]
+            elif headers[i] == 'ID Ninja2':
+                self.ninja2 = values[i]
+            elif headers[i] == 'ID Ninja Medico':
+                self.ninjamedico = values[i]
     @staticmethod
     def get_headers():
         headers = ['ID', 'Nombre', 'ID Ninja1', 'ID Ninja2', 'ID Ninja Medico']

@@ -12,6 +12,24 @@ class Ninja(Persona):
         yield self.fecha_nacimiento
         yield self.chakra_max
         yield self.sobrenombre
+    def add_values(self, values):
+        headers = Ninja.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'Nombre':
+                self.nombre = values[i]
+            elif headers[i] == 'Edad':
+                self.edad = values[i]
+            elif headers[i] == 'Sexo':
+                self.sexo = values[i]
+            elif headers[i] == 'Clan':
+                self.clan = values[i]
+            elif headers[i] == 'Fecha Nacimiento':
+                self.fecha_nacimiento = values[i]
+            elif headers[i] == 'Chakra Maximo':
+                self.chakra_max = values[i]
+            elif headers[i] == 'Sobrenombre':
+                self.sobrenombre = values[i]
     @staticmethod
     def get_headers():
         headers = Persona.get_headers()

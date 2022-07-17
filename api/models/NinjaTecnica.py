@@ -8,6 +8,14 @@ class NinjaTecnica(models.Model):
         yield self.pk
         yield self.ninja
         yield self.tecnica
+    def add_values(self, values):
+        headers = NinjaTecnica.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'ID Ninja':
+                self.ninja = values[i]
+            elif headers[i] == 'ID Tecnica':
+                self.tecnica = values[i]
     @staticmethod
     def get_headers():
         headers = ['ID', 'ID Ninja', 'ID Tecnica']

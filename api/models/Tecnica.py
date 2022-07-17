@@ -10,6 +10,18 @@ class Tecnica(models.Model):
         yield self.elemento
         yield self.es_oculta
         yield self.cantidad_chakra
+    def add_values(self, values):
+        headers = Tecnica.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'Nombre':
+                self.nombre = values[i]
+            elif headers[i] == 'Elemento':
+                self.elemento = values[i]
+            elif headers[i] == 'Es Oculta':
+                self.es_oculta = values[i]
+            elif headers[i] == 'Cantidad Chakra':
+                self.cantidad_chakra = values[i]
     @staticmethod
     def get_headers():
         headers = ['ID', 'Nombre', 'Elemento', 'Es Oculta', 'Cantidad Chakra']

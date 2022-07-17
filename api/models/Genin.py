@@ -15,6 +15,28 @@ class Genin(Ninja):
         yield self.sobrenombre
         yield self.fecha_graduacion
         yield self.valoracion
+    def add_values(self, values):
+        headers = Genin.get_headers()
+        headers.pop(0)
+        for i in range(len(headers)):
+            if headers[i] == 'Nombre':
+                self.nombre = values[i]
+            elif headers[i] == 'Edad':
+                self.edad = values[i]
+            elif headers[i] == 'Sexo':
+                self.sexo = values[i]
+            elif headers[i] == 'Clan':
+                self.clan = values[i]
+            elif headers[i] == 'Fecha Nacimiento':
+                self.fecha_nacimiento = values[i]
+            elif headers[i] == 'Chakra Maximo':
+                self.chakra_max = values[i]
+            elif headers[i] == 'Sobrenombre':
+                self.sobrenombre = values[i]
+            elif headers[i] == 'Fecha Graduacion':
+                self.fecha_graduacion = values[i]
+            elif headers[i] == 'Valoracion':
+                self.valoracion = values[i]
     @staticmethod
     def get_headers():
         headers = Ninja.get_headers()

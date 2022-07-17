@@ -1,4 +1,5 @@
 
+from datetime import datetime
 from app import repository
 from app.forms import FormCreator
 
@@ -37,6 +38,21 @@ def get_options(data):
         else:
             options.append('')
     return options
+
+def create_element(data, values):
+    types = get_types(data)
+    for i in range(len(types)):
+        if types[i] == 'Int' or types[i] == 'Select':
+            values[i] = int(values[i])
+        elif types[i] == 'Boolean':
+            if values[i] == 'True':
+                values[i] = True
+            else:
+                values[i] = False
+        elif types[i] == 'Date':
+            fecha = datetime.strptime(values[i], '%Y-%m-%d')
+            values[i] = fecha
+    repository.create_element(data,values)
     
     
 def create_form(data):
