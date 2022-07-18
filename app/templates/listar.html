@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+
+{% block title %}Listado{% endblock %}
+{# data headers records #}
+{% block content %}
+  <table>
+    <tr>
+      {% for header in headers %}
+      <th>
+        {{header}}
+      </th>    
+      {% endfor %}
+      <th>Acciones</th>
+    </tr>
+    {% for record in records %}
+    <tr>
+    {% for value in record%}
+      <td>
+        {{value}}  
+      </td>
+    {% endfor %}
+      <td>
+        <button><a href="/app/editar/{{data}}/{{record.pk}}">Editar</a></button>
+        <button><a href="/app/eliminar/{{data}}/{{record.pk}}">Eliminar</a></button>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <button><a href="/app/agregar/{{data}}">Agregar</a></button>
+{% endblock %}
