@@ -14,11 +14,9 @@ def get_record(data, pk):
     return record
 
 def get_record_in_array(data, pk):
-    record = repository.get_record(data, pk)
-    types = get_types(data)
-    lista = zip(record,types)
+    record = get_record(data, pk)
     attributes = []
-    for attribute,tp in lista:
+    for attribute in record:
         attributes.append(attribute) 
     return attributes
 
@@ -63,6 +61,7 @@ def create_element(data, values):
                 values[i] = False
         elif types[i] == 'Date':
             fecha = datetime.strptime(values[i], '%Y-%m-%d')
+            print(str(fecha))
             values[i] = fecha
         elif types[i] == 'Select':
             pk = int(values[i])

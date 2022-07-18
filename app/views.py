@@ -42,6 +42,9 @@ def editar(request, data, pk):
         options = controller.get_options(data)
         record = controller.get_record_in_array(data, pk)
         pk = record.pop(0)
+        for i in range(len(types)):
+            if types[i] == 'Date':
+                record[i] = str(record[i])
         lista_conjunta = zip(names,types,options,record)
         return render(request, 'editar.html', {'data':data, 'lista_conjunta':lista_conjunta, 'selected':data, 'pk':pk})
     return home(request)
