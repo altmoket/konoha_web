@@ -12,21 +12,25 @@
     <div id="sidebar">
       {% block sidebar %}
         <ul>
-          <li><a href="/api/female-medical-ninjas">Consulta1 => Female-Medical-Ninjas</a></li>
-          <li><a href="/api/captain-in-C-rank-missions">Consulta2 => Captain-in-C-Rank-Missions</a></li>
-          <li><a href="/api/ninja-invocation-in-S-rank-missions">Consulta3 => Ninja-Invocation-in-S-Rank-Missions</a></li>
-          <li><a href="/api/hidden-techniques">Consulta4 => Hidden-Techniques</a></li>
-          <li><a href="/api/medical-ninja-captains/">Consulta5 => Medical-Ninja-Captains</a></li>
-          <li><a href="/api/highest-reward-missions">Consulta6 => Highest-Reward-Missions</a></li>
+          <div class="group">
+          <li><button class="btn bg-consulta shadow"><a class="color-white" href="/api/female-medical-ninjas">Female-Medical-Ninjas</a></button></li>
+          <li><button class="btn bg-consulta shadow"><a class="color-white" href="/api/captain-in-C-rank-missions">Captain-in-C-Rank-Missions</a></button></li>
+          <li><button class="btn bg-consulta shadow"><a class="color-white" href="/api/ninja-invocation-in-S-rank-missions">Ninja-Invocation-in-S-Rank-Missions</a></button></li>
+          </div>
+          <div class="group">
+          <li><button class="btn bg-consulta shadow"><a class="color-white" href="/api/hidden-techniques">Hidden-Techniques</a></button></li>
+          <li><button class="btn bg-consulta shadow"><a class="color-white" href="/api/medical-ninja-captains/">Medical-Ninja-Captains</a></button></li>
+          <li><button class="btn bg-consulta shadow"><a class="color-white" href="/api/highest-reward-missions">Highest-Reward-Missions</a></button></li>
+          </div>
         </ul>     
       {% endblock %}
     </div>   
    
-    <div id="selection">
       <form action="{% url 'listar' %}" method="get">
         {% csrf_token %}
         {% block selection %}
-          <select id="data" name="data" maxlength="100">
+        <div class="select">
+          <select id="data" class="btn bg-select" name="data" maxlength="100">
             <option value="Persona" {% if selected == 'Persona' %}selected{% endif %}>Personas</option> 
             <option value="Ninja" {% if selected == 'Ninja' %}selected{% endif %}>Ninjas</option> 
             <option value="Genin" {% if selected == 'Genin' %}selected{% endif %}>Genins</option> 
@@ -45,10 +49,10 @@
             <option value="BestiaMitica" {% if selected == 'BestiaMitica' %}selected{% endif %}>Bestias Miticas</option> 
             <option value="BestiaMisionPergamino" {% if selected == 'BestiaMisionPergamino' %}selected{% endif %}>Bestias Misiones Pergaminos</option> 
           </select>   
+          <input type="submit" class="btn bg-select" value="Seleccionar">
+      </div>
         {% endblock %}  
-        <input type="submit" value="Seleccionar">
       </form> 
-    </div>
     <br>
     <div id="content">
       {% block content %}{% endblock %} 

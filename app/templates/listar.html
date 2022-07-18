@@ -21,12 +21,12 @@
       </td>
     {% endfor %}
       <td>
-        <button><a href="/app/editar/{{data}}/{{record.pk}}">Editar</a></button>
-        <button><a href="/app/eliminar/{{data}}/{{record.pk}}">Eliminar</a></button>
+        <button class="btn bg-editar"><a class="color-white" href="/app/editar/{{data}}/{{record.pk}}">Editar</a></button>
+        <button class="btn bg-eliminar"><a class="color-white" href="/app/eliminar/{{data}}/{{record.pk}}">Eliminar</a></button>
       </td>
     </tr>
     {% endfor %}
   </table>
   <br>
-  <button><a href="/app/agregar/{{data}}">Agregar</a></button>
+  <button class="btn bg-crear"><a class="color-white" href="/app/agregar/{{data}}">Agregar</a></button>
 {% endblock %}

@@ -3,43 +3,37 @@
 {% block title %}Creando Elemento{% endblock %}
 {#data lista_conjunta=[headers types options] #}
 {% block content %}
-  <form action="{% url 'agregar elemento' %}" method="post">
+  <form action="{% url 'agregar elemento' %}" class="form" method="post">
+    <h4 class="h4">Creando {{data}}</h4>
    {% csrf_token %} 
      <input type="hidden" id="data" name="data" value="{{data}}">
    {% for name,type,options in lista_conjunta %}
      <label for="{{name}}">{{name}}:</label>
-     <br>
    {% if type == 'Char' %}
-     <input type="text" id="{{name}}" name="{{name}}" maxlength="100" required="">
-     <br>
+     <input type="text" class="w-100 input" id="{{name}}" name="{{name}}" maxlength="100" required="">
    {% elif type == 'Int' %}
-     <input type="number" id="{{name}}" name="{{name}}" maxlength="100" required="">
-     <br>
+     <input type="number" class="w-100 input" id="{{name}}" name="{{name}}" maxlength="100" required="">
    {% elif type == 'Choices' %}
-     <select id="{{name}}" name="{{name}}" maxlength="100">
+     <select id="{{name}}"  class="w-100 input" name="{{name}}" maxlength="100">
          {% for option in options %}
          <option value="{{option}}">{{option}}</option>
          {% endfor %}
       </select>
-      <br>
    {% elif type == 'Select' %}
-     <select id="{{name}}" name="{{name}}" maxlength="100">
+     <select id="{{name}}" class="w-100 input" name="{{name}}" maxlength="100">
          {% for option in options %}
          <option value="{{option}}">{{option}}</option>
          {% endfor %}
       </select>
-      <br>
    {% elif type == 'Date' %}
-     <input type="date" id="{{name}}" name="{{name}}" maxlength="100" required="">
-     <br>
+     <input type="date" class="w-100 input" id="{{name}}" name="{{name}}" maxlength="100" required="">
    {% elif type == 'Boolean' %}
-     <select id="{{name}}" name="{{name}}" maxlength="100">
+     <select id="{{name}}" class="w-100 input" name="{{name}}" maxlength="100">
          <option value="True">True</option>
          <option value="False">False</option>
       </select>
-      <br>
    {% endif %}
    {% endfor %}
-    <input type="submit" value="Crear">
+    <input type="submit" class="w-100 input btn mt-5 py-5 bg-crear" value="Crear">
   </form>   
 {% endblock %}
