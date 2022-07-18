@@ -20,6 +20,9 @@ def exist_model(data):
 def get_types(data):
     return helpers.get_types(data)
 
+def get_model(data):
+    return helpers.get_model(data)
+
 def get_pointers(data):
     return helpers.get_pointers(data)
         

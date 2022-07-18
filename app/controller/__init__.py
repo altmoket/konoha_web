@@ -1,5 +1,6 @@
 from datetime import datetime
 from app import repository
+from app.controller import helpers
 
 def get_headers(data):
     headers = repository.get_headers(data)
@@ -33,6 +34,12 @@ def get_names(data):
     headers = list(get_headers(data))
     headers.pop(0)
     return headers
+
+def get_model(data):
+    return repository.get_model(data)
+
+def get_serializer(data):
+    return helpers.get_serializer(data)
 
 def get_options(data):
     types = repository.get_types(data)
