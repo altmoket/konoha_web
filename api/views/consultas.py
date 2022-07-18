@@ -139,20 +139,30 @@ def hidden_techniques(request):
     hidden_techn=dicc.values()
     lista=[]
     for item in hidden_techn:
+        lista+item
         for var in item:
-            lista.append(var)
+            if not lista.__contains__(var):
+                lista.append(var)
     serializer=TecnicaSerializer(lista,many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])        
 def medical_ninja_captains(request):
     medical_ninja=NinjaMedico.objects.all()
+    medical_ninja_dicc={item.id:item for item in medical_ninja}
+    print(medical_ninja)
     team_on_mission=EquipoEnMision.objects.all()
-    medical_captain=[item.capitan for item in team_on_mission if medical_ninja.__contains__(item.capitan)]
-    return Response(medical_captain)
+    print(team_on_mission)
+    medical_captain=[item.capitan for item in team_on_mission if medical_ninja_dicc.__contains__(item.capitan.id)]
+    medical_captain_list=[]
+    for item in medical_captain:
+        if not medical_captain_list.__contains__(item):
+            medical_captain_list.append(item)
+    serializer=JouninSerializer(medical_captain_list,many=True)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def highest_reward_missions(request):
-    satisfactory_mission=EquipoEnMision.objects.filter(resultado='S').order_by(mision.recompensa)
+    satisfactory_mission=EquipoEnMision.objects.filter(resultado='S')
     missions=satisfactory_mission.values_list('mision',flat=True).order_by('recompensa')
     return Response(missions)
