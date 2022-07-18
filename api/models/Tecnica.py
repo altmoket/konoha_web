@@ -4,6 +4,8 @@ class Tecnica(models.Model):
     elemento = models.CharField(max_length=30, default="")
     es_oculta = models.BooleanField(default=False)
     cantidad_chakra = models.IntegerField(default=0)
+    def save_element(self, *args, **kargs):
+        return super().save(*args, **kargs)
     def __str__(self):
         return str(self.nombre) + '('+ str(self.pk) + ')'
     def __iter__(self):

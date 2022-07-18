@@ -23,6 +23,8 @@ class Genin(Ninja):
             super().save(*args, **kargs)
         except Exception as e:
             print(e)
+    def save_element(self, *args, **kargs):
+        return super().save_element(*args, **kargs)
         
     def __iter__(self):
         yield self.pk

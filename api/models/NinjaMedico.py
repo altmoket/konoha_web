@@ -1,6 +1,9 @@
 
 from api.models.Ninja import Ninja
 class NinjaMedico(Ninja):
+    def save_element(self, *args, **kargs):
+        return super().save_element(*args, **kargs)
+
     def save(self, *args, **kargs):
         file = open("file.txt", "r")
         msg = file.read()
@@ -18,6 +21,7 @@ class NinjaMedico(Ninja):
             self.sobrenombre=objecto[0].sobrenombre
         print(objecto)
         super().save(*args, **kargs)
+
     def __iter__(self):
         yield self.pk
         yield self.nombre

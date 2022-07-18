@@ -34,7 +34,12 @@ def create_element(data,values):
     model = helpers.get_model(data)
     record = model()
     record.add_values(values)
-    record.save()
+    record.save_element()
+
+def edit_element(data,id,values):
+    record = get_record(data, id)
+    record.add_values(values)
+    record.save_element()
 
 def delete_element(data, id):
     model = helpers.get_model(data)

@@ -61,13 +61,33 @@ def create_element(data, values):
                 values[i] = False
         elif types[i] == 'Date':
             fecha = datetime.strptime(values[i], '%Y-%m-%d')
-            print(str(fecha))
             values[i] = fecha
         elif types[i] == 'Select':
             pk = int(values[i])
             record = repository.get_record(pointers[i], pk)
             values[i] = record
     repository.create_element(data,values)
+
+def edit_element(data, values):
+    pk = values.pop(0)
+    types = get_types(data)
+    pointers = get_pointers(data)
+    for i in range(len(types)):
+        if types[i] == 'Int':
+            values[i] = int(values[i])
+        elif types[i] == 'Boolean':
+            if values[i] == 'True':
+                values[i] = True
+            else:
+                values[i] = False
+        elif types[i] == 'Date':
+            fecha = datetime.strptime(values[i], '%Y-%m-%d')
+            values[i] = fecha
+        elif types[i] == 'Select':
+            pk = int(values[i])
+            record = repository.get_record(pointers[i], pk)
+            values[i] = record
+    repository.edit_element(data,pk,values)
 
 def delete_element(data, pk):
     repository.delete_element(data,pk)

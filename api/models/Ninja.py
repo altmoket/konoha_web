@@ -20,6 +20,8 @@ class Ninja(Persona):
             super().save(*args, **kargs)
         except Exception as e:
             print(e)
+    def save_element(self, *args, **kargs):
+        return super().save(*args, **kargs)
 
     def __iter__(self):
         yield self.pk

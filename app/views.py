@@ -48,9 +48,16 @@ def editar(request, data, pk):
         lista_conjunta = zip(names,types,options,record)
         return render(request, 'editar.html', {'data':data, 'lista_conjunta':lista_conjunta, 'selected':data, 'pk':pk})
     return home(request)
-@api_view(['PUT'])
+@api_view(['POST'])
 def editar_elemento(request):
-    pass
+    all_values = request.POST
+    data = request.POST['data']
+    headers = controller.get_headers(data)
+    values = []
+    for header in headers:
+        values.append(all_values[header])
+    controller.edit_element(data, values)
+    return redirect('/app/listar?data='+data) 
 
 @api_view(['GET'])
 def eliminar_elemento(_, data, pk):

@@ -6,6 +6,8 @@ class Pergamino(models.Model):
     ninja = models.ForeignKey(Ninja, on_delete=models.CASCADE, null=False)
     tecnica = models.ForeignKey(Tecnica, on_delete=models.CASCADE, null=False)
     fecha_sellado = models.DateField(default=date(1,1,1))
+    def save_element(self, *args, **kargs):
+        return super().save(*args, **kargs)
     def __str__(self):
         return 'P(' + str(self.pk) + ')'
     def __iter__(self):
