@@ -48,10 +48,13 @@ def female_medical_ninjas(request):
     try:
         female_medical_ninjas=NinjaMedico.objects.filter(sexo='F')
         medical_ninjas=NinjaMedico.objects.all()
-        percent=(len(female_medical_ninjas) * 100) / len(medical_ninjas)
+        if len(medical_ninjas)>0:
+            percent=(len(female_medical_ninjas) * 100) / len(medical_ninjas)
+            return Response(percent)
+        else:
+            return Response(0)
     except Exception as e:
         raise e
-    return Response(percent)
 
 @api_view(['GET'])
 def captain_in_C_rank_missions(request):
@@ -94,9 +97,12 @@ def ninja_invocation_in_S_rank_missions(request):
                 dicc[item[1]]=dicc[item[1]]+1
             else:
                 dicc.setdefault(item[1],1)
-        ninjas={ninja.id:ninja for (ninja,missions) in dicc.items() if missions>6}
-        ninjas_invocation=[(item.invocador.nombre,item.invocador.clan,item.nombre) for item in BestiaMitica.objects.all() if ninjas.__contains__(item.invocador.id)]
-        return Response(ninjas_invocation)
+        if len(dicc) > 0:
+            ninjas={ninja.id:ninja for (ninja,missions) in dicc.items() if missions>6}
+            ninjas_invocation=[(item.invocador.nombre,item.invocador.clan,item.nombre) for item in BestiaMitica.objects.all() if ninjas.__contains__(item.invocador.id)]
+            return Response(ninjas_invocation)
+        else:
+            return Response()
     except Exception as e:
         raise e
 

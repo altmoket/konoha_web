@@ -9,14 +9,18 @@
   </head>
   <body>
     
-    <!-- <div id="sidebar"> -->
-    <!--   {% block sidebar %} -->
-    <!--     <ul> -->
-    <!--       <li><a href="/">Home</a></li> -->
-    <!--       <li><a href="/your-name/">Your Name</a></li>     -->
-    <!--     </ul>      -->
-    <!--   {% endblock %} -->
-    <!-- </div>    -->
+    <div id="sidebar">
+      {% block sidebar %}
+        <ul>
+          <li><a href="/api/female-medical-ninjas">Consulta1 => Female-Medical-Ninjas</a></li>
+          <li><a href="/api/captain-in-C-rank-missions">Consulta2 => Captain-in-C-Rank-Missions</a></li>
+          <li><a href="/api/ninja-invocation-in-S-rank-missions">Consulta3 => Ninja-Invocation-in-S-Rank-Missions</a></li>
+          <li><a href="/api/hidden-techniques">Consulta4 => Hidden-Techniques</a></li>
+          <li><a href="/api/medical-ninja-captains/">Consulta5 => Medical-Ninja-Captains</a></li>
+          <li><a href="/api/highest-reward-missions">Consulta6 => Highest-Reward-Missions</a></li>
+        </ul>     
+      {% endblock %}
+    </div>   
    
     <div id="selection">
       <form action="{% url 'listar' %}" method="get">
@@ -45,6 +49,7 @@
         <input type="submit" value="Seleccionar">
       </form> 
     </div>
+    <br>
     <div id="content">
       {% block content %}{% endblock %} 
     </div>

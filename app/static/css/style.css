@@ -1,16 +1,13 @@
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
+th, td {
   padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
 tr:hover {background-color: #D6EEEE;}
+
